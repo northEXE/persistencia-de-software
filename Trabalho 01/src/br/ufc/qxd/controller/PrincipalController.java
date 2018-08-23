@@ -4,12 +4,15 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import br.ufc.qxd.service.ClienteService;
+import br.ufc.qxd.service.LivroCadastroService;
 
 public class PrincipalController {
 	public static void main(String[] args) throws IOException {
-		ClienteService clienteService = new ClienteService();
-
-		System.out.println("Livraria do Yoda!! A melhor livraria de todas!!");
+		//ClienteService clienteService = new ClienteService();
+		LivroCadastroService livroService = new LivroCadastroService();
+		
+		livroService.cadastrarLivroAventura();
+		/**System.out.println("Livraria do Yoda!! A melhor livraria de todas!!");
 		@SuppressWarnings("resource")
 		Scanner s = new Scanner(System.in);
 		byte op = -3;
@@ -34,7 +37,7 @@ public class PrincipalController {
 				}
 				break;
 			}
-		}
+		}*/
 		System.exit(0);
 	}
 }
