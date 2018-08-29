@@ -5,13 +5,15 @@ import java.util.Scanner;
 
 import br.ufc.qxd.service.ClienteService;
 import br.ufc.qxd.service.LivroCadastroService;
+import br.ufc.qxd.service.LivroListarService;
 
 public class PrincipalController {
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		//ClienteService clienteService = new ClienteService();
-		LivroCadastroService livroService = new LivroCadastroService();
-		
-		livroService.cadastrarLivroAventura();
+		LivroListarService livroListar = new LivroListarService();
+		LivroCadastroService livro = new LivroCadastroService();
+		livro.cadastrarLivroAventura();
+		//livroListar.listarLivrosAventura();
 		/**System.out.println("Livraria do Yoda!! A melhor livraria de todas!!");
 		@SuppressWarnings("resource")
 		Scanner s = new Scanner(System.in);

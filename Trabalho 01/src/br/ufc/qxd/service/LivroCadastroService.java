@@ -1,5 +1,6 @@
 package br.ufc.qxd.service;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -11,17 +12,23 @@ import br.ufc.qxd.model.LivroComedia;
 import br.ufc.qxd.model.LivroDrama;
 
 public class LivroCadastroService {
-	public static final String ARQUIVO_AVENTURA = "livrosAventura.txt";
-	public static final String ARQUIVO_DRAMA = "livrosDrama.txt";
-	public static final String ARQUIVO_COMEDIA = "livrosComedia.txt";
+	String ARQUIVO_AVENTURA = "arquivos_livro_aventura/";
+	String ARQUIVO_DRAMA = "arquivos_livro_drama/";
+	String ARQUIVO_COMEDIA = "arquivos_livro_comedia/";
+	
 	Scanner s = new Scanner(System.in);
 	Scanner b = new Scanner(System.in);
 
+	public void makeDir(String caminho) {
+		File file = new File(caminho);
+		if(!file.exists()) {
+			file.mkdir();
+		}
+	}
+	
 	public void cadastrarLivroAventura() throws IOException {
-
-		OutputStream osA = new FileOutputStream(ARQUIVO_AVENTURA, true);
-		ObjectOutputStream outA = new ObjectOutputStream(osA);
-
+		makeDir(ARQUIVO_AVENTURA);
+		
 		System.out.println(
 				"Digite o título, ISBN(sem separadores), valor, a quantidade em estoque, e os tipos de ilustrações:\n");
 
@@ -31,18 +38,21 @@ public class LivroCadastroService {
 		livroAventura.setValor(b.nextDouble());
 		livroAventura.setQtdEstoque(b.nextInt());
 		livroAventura.setTipoIlustracao(s.nextLine());
+		
+		OutputStream osA = new FileOutputStream(ARQUIVO_AVENTURA + livroAventura.getIsbn()+".bok", true);
+		ObjectOutputStream outA = new ObjectOutputStream(osA);
 		outA.writeObject(livroAventura);
 
+		System.out.println("Livro cadastrado com sucesso!!");
+		
 		osA.close();
 		outA.close();
 
 	}
 
 	public void cadastrarLivroDrama() throws IOException {
+		makeDir(ARQUIVO_DRAMA);
 		
-		OutputStream osD = new FileOutputStream(ARQUIVO_DRAMA, true);
-		ObjectOutputStream outD = new ObjectOutputStream(osD);
-
 		System.out.println(
 				"Digite o título, ISBN(sem separadores), valor, a quantidade em estoque, e se o livro possui capa dura (escrever true ou false):\n");
 
@@ -52,17 +62,18 @@ public class LivroCadastroService {
 		livroDrama.setValor(b.nextDouble());
 		livroDrama.setQtdEstoque(b.nextInt());
 		livroDrama.setTemCapaDura(s.nextBoolean());
+		
+		OutputStream osD = new FileOutputStream(ARQUIVO_AVENTURA + livroDrama.getIsbn()+".bok", true);
+		ObjectOutputStream outD = new ObjectOutputStream(osD);
 		outD.writeObject(livroDrama);
-
+		
 		osD.close();
 		outD.close();
 
 	}
 	
 	public void cadastrarLivroComedia() throws IOException {
-		
-		OutputStream osC = new FileOutputStream(ARQUIVO_DRAMA, true);
-		ObjectOutputStream outC = new ObjectOutputStream(osC);
+		makeDir(ARQUIVO_COMEDIA);
 
 		System.out.println(
 				"Digite o título, ISBN(sem separadores), valor, a quantidade em estoque, e se o livro possui capa tipo brochura (escrever true ou false):\n");
@@ -73,6 +84,10 @@ public class LivroCadastroService {
 		livroComedia.setValor(b.nextDouble());
 		livroComedia.setQtdEstoque(b.nextInt());
 		livroComedia.setCapaTipoBrochura(s.nextBoolean());
+		
+		OutputStream osC = new FileOutputStream(ARQUIVO_AVENTURA + livroComedia.getIsbn()+".bok", true);
+		ObjectOutputStream outC = new ObjectOutputStream(osC);
+		
 		outC.writeObject(livroComedia);
 
 		osC.close();

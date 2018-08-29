@@ -42,4 +42,9 @@ public class Livro implements Serializable {
 		this.qtdEstoque = qtdEstoque;
 	}
 
+	public String toString() {
+		return "Título do livro: " + titulo + "\nISBN: " + isbn + "\nValor: " + valor + "\nQunatidade em estoque: "
+				+ qtdEstoque;
+	}
+
 }

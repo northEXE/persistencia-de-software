@@ -12,4 +12,10 @@ public class LivroComedia extends Livro {
 	public void setCapaTipoBrochura(boolean capaTipoBrochura) {
 		this.capaTipoBrochura = capaTipoBrochura;
 	}
+
+	@Override
+	public String toString() {
+		return "Título do livro: " + getTitulo() + "\nISBN: " + getIsbn() + "\nValor: " + getValor()
+				+ "\nQunatidade em estoque: " + getQtdEstoque() + "Capa de brochura? " + isCapaTipoBrochura();
+	}
 }
