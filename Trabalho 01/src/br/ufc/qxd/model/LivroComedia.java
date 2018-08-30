@@ -16,6 +16,6 @@ public class LivroComedia extends Livro {
 	@Override
 	public String toString() {
 		return "Título do livro: " + getTitulo() + "\nISBN: " + getIsbn() + "\nValor: " + getValor()
-				+ "\nQunatidade em estoque: " + getQtdEstoque() + "Capa de brochura? " + isCapaTipoBrochura();
+				+ "\nQunatidade em estoque: " + getQtdEstoque() + "\nCapa de brochura? " + isCapaTipoBrochura();
 	}
 }

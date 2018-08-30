@@ -44,7 +44,7 @@ public class Livro implements Serializable {
 
 	public String toString() {
 		return "Título do livro: " + titulo + "\nISBN: " + isbn + "\nValor: " + valor + "\nQunatidade em estoque: "
-				+ qtdEstoque;
+				+ qtdEstoque + "\n";
 	}
 
 }

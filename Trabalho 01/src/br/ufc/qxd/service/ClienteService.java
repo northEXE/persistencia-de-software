@@ -22,7 +22,7 @@ public class ClienteService {
 	public void adicionarCliente() throws IOException {
 		System.out.println("Cadastro de Cliente!!\n");
 		System.out.println("Digite o nome, CPF, data de nascimento e endereço, respectivamente:\n");
-		
+
 		Cliente cliente = new Cliente();
 		cliente.setNome(s.nextLine());
 		cliente.setCpf(s.nextLine());
@@ -40,41 +40,41 @@ public class ClienteService {
 	public void listarClientes() throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(ARQUIVO)));
 		String s = br.readLine();
-		
+
 		while (s != null) {
 			System.out.println(s);
 			s = br.readLine();
 		}
-		
+
 		System.out.println("\n");
-		
+
 		br.close();
 	}
 
 	public void removerCliente() throws IOException {
 		ArrayList<String> aux = new ArrayList<String>();
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(ARQUIVO)));
-		
+
 		System.out.println("Digite os dados do cliente que deseja remover:\n");
 		String clienteApagar = s.nextLine();
 		String linha = br.readLine();
-		
+
 		while (linha != null) {
 			if (linha.equals(clienteApagar) == false) {
 				aux.add(linha);
 			}
 			linha = br.readLine();
 		}
-		
+
 		br.close();
-		
+
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(ARQUIVO)));
-		for(String a : aux) {
+		for (String a : aux) {
 			bw.append(a + "\n");
 		}
-		
+
 		System.out.println("Cliente removido com sucesso!!\n");
-		
+
 		bw.close();
 	}
 }
