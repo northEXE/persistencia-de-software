@@ -12,7 +12,7 @@ public class PrincipalController {
 		//ClienteService clienteService = new ClienteService();
 		LivroListarService livroListar = new LivroListarService();
 		LivroCadastroService livro = new LivroCadastroService();
-		livro.cadastrarLivroAventura();
+		//livro.cadastrarLivroAventura();
 		//livroListar.listarLivrosAventura();
 		/**System.out.println("Livraria do Yoda!! A melhor livraria de todas!!");
 		@SuppressWarnings("resource")

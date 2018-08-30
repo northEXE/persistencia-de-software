@@ -39,7 +39,7 @@ public class LivroCadastroService {
 		livroAventura.setQtdEstoque(b.nextInt());
 		livroAventura.setTipoIlustracao(s.nextLine());
 		
-		OutputStream osA = new FileOutputStream(ARQUIVO_AVENTURA + livroAventura.getIsbn()+".bok", true);
+		OutputStream osA = new FileOutputStream(ARQUIVO_AVENTURA + livroAventura.getIsbn() + "-" + livroAventura.getTitulo());
 		ObjectOutputStream outA = new ObjectOutputStream(osA);
 		outA.writeObject(livroAventura);
 
@@ -63,7 +63,7 @@ public class LivroCadastroService {
 		livroDrama.setQtdEstoque(b.nextInt());
 		livroDrama.setTemCapaDura(s.nextBoolean());
 		
-		OutputStream osD = new FileOutputStream(ARQUIVO_AVENTURA + livroDrama.getIsbn()+".bok", true);
+		OutputStream osD = new FileOutputStream(ARQUIVO_DRAMA + livroDrama.getIsbn() + "-" + livroDrama.getTitulo());
 		ObjectOutputStream outD = new ObjectOutputStream(osD);
 		outD.writeObject(livroDrama);
 		
@@ -85,7 +85,7 @@ public class LivroCadastroService {
 		livroComedia.setQtdEstoque(b.nextInt());
 		livroComedia.setCapaTipoBrochura(s.nextBoolean());
 		
-		OutputStream osC = new FileOutputStream(ARQUIVO_AVENTURA + livroComedia.getIsbn()+".bok", true);
+		OutputStream osC = new FileOutputStream(ARQUIVO_COMEDIA + livroComedia.getIsbn() + "-" + livroComedia.getTitulo());
 		ObjectOutputStream outC = new ObjectOutputStream(osC);
 		
 		outC.writeObject(livroComedia);
